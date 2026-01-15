@@ -27,7 +27,7 @@
     - install-zfs-packages
   block:
     - name: Stop reused disks from being auto mounted
-      ansible.builtin.command: "gsettings set org.gnome.desktop.media-handling automount false"
+      ansible.builtin.command: "command -v gsettings && gsettings set org.gnome.desktop.media-handling automount false"
       register: cmd_output
       changed_when: cmd_output.rc == 0
 
