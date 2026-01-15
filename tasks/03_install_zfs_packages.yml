@@ -30,6 +30,7 @@
       ansible.builtin.command: "command -v gsettings && gsettings set org.gnome.desktop.media-handling automount false"
       register: cmd_output
       changed_when: cmd_output.rc == 0
+      when: skip_gsettings == false
 
 # ##[ Install Packages Need to get Started ]####################################
 - name: Install Packages Need to get Started
